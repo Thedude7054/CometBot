@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node index.js"
+    "test": "node index.js",
+    "pretest": "./node_modules/.bin/eslint --fix --ignore-path .gitignore ."
   },
   "author": "Andrew Nasson",
   "license": "ISC",
@@ -14,5 +15,9 @@
     "dotenv": "^6.2.0",
     "prettier": "^1.16.1",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-strongloop": "^2.1.0"
   }
 }

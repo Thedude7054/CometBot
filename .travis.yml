@@ -3,6 +3,6 @@ sudo: false
 node_js:
   - 9.8
 install:
-  - cd status-discord-bot && npm install && cd ..
+  - npm install
 script:
-  - cd status-discord-bot && npm test
+  - npm test
