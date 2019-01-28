@@ -1,0 +1,8 @@
+language: node_js
+sudo: false
+node_js:
+  - 9.8
+install:
+  - cd status-discord-bot && npm install && cd ..
+script:
+  - cd status-discord-bot && npm test
