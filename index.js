@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var request = require('request');
@@ -11,7 +13,7 @@ const checkName = process.env.CHECK_NAME;
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     setInterval(()=> {
-        checkStatus()
+        checkStatus();
     }, 5000);
 });
 
@@ -22,7 +24,7 @@ function checkStatus(req, res) {
     if (!error && response.statusCode == 200) {
             console.log("checking UP");
             if (status === 'UP') return;
-            alert({ service : checkName, status : 'UP', statusCode : response.statusCode })
+            alert({ service : checkName, status : 'UP', statusCode : response.statusCode });
             client.user.setActivity(`${checkName} is UP`, { type: 'WATCHING' })
             .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
             .catch(console.error);
@@ -30,16 +32,16 @@ function checkStatus(req, res) {
         } else {
             console.log("checking DOWN");
             if (status === 'DOWN') return;
-            alert({ service : checkName, status : 'DOWN', statusCode : response.statusCode })
+            alert({ service : checkName, status : 'DOWN', statusCode : response.statusCode });
             client.user.setActivity(`${checkName} is DOWN`, { type: 'WATCHING' })
             .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
             .catch(console.error);
             status = 'DOWN';
         }
-    })
-};
+    });
+}
 
-async function alert(options = {}) {
+function alert(options = {}) {
     const {checkName , status, statusCode} = options;
     var dmUsers = process.env.DM_USERS.split(' ');
     console.log(`Users Array: ${dmUsers}`);
