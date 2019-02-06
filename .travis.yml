@@ -21,7 +21,8 @@ env:
     - PROJECT_NAME_PRD=fluted-set-227020
     - CLUSTER_NAME_PRD=cluster-1
     - CLOUDSDK_COMPUTE_ZONE=us-west1
-    - DOCKER_IMAGE_NAME=status-bot
+    - DOCKER_IMAGE_NAME_PRODUCTION=status-bot
+    - DOCKER_IMAGE_NAME_DEVELOPMENT=status-bot-development
     - KUBE_DEPLOYMENT_NAME=status-bot
     - KUBE_DEPLOYMENT_CONTAINER_NAME=status-bot
     - NODE_ENV=CI
@@ -46,3 +47,8 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
+  - provider: script
+    script: ./deploy-development.sh
+    skip_cleanup: true
+    on:
+      branch: development
