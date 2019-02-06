@@ -1,14 +1,20 @@
 # Status-Bot
 
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b60512c7a77f4f6caae8640a73932302)](https://www.codacy.com/app/Thedude7054/status-discord-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Thedude7054/status-discord-bot&amp;utm_campaign=Badge_Grade)
+
 ## Requirements
+
 - Docker
 - node.js if planning on developing this image
 
 ## Installation
+
 Literally pull the repository.
 > For a guide on installing docker, please refer the [official documentation](https://docs.docker.com/docker-for-windows/install/)
 
 ## Configuration
+
 This is run with Docker, using environment variables. *All environment variables are required*
 The enviornment variables consist of;
 * ```CHECK_NAME``` - What you want the bot to say it's taking the status of.
@@ -18,6 +24,7 @@ The enviornment variables consist of;
 > You can find these in the included example.env file
 
 ## Running
+
 To run this in detached mode, using the environment variables in the .env file: 
 > Before running this, please make sure your environment variables have been propperly entered.
 ```bash

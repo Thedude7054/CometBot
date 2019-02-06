@@ -9,13 +9,13 @@ const Sentry = require('@sentry/node');
 
 if(process.env.SENTRY_ENABLED == 'true') {
     Sentry.init({
-        dsn: proccess.env.SENTRY_DSN,
+        dsn: process.env.SENTRY_DSN,
         environment: process.env.ENV,
     });
     Sentry.configureScope((scope) => {
       scope.setTag("node_version", process.version);
     });
-    logger.log("Sentry Enabled")
+    logger.log("Sentry Enabled");
 }
 
 const pingURL = process.env.PING_URL;
