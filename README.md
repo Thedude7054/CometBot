@@ -1,4 +1,4 @@
-# Status-Bot
+# CometBot
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b60512c7a77f4f6caae8640a73932302)](https://www.codacy.com/app/Thedude7054/status-discord-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Thedude7054/status-discord-bot&amp;utm_campaign=Badge_Grade) ![Build Status](https://travis-ci.com/Thedude7054/status-discord-bot.svg?branch=master)
 
@@ -19,7 +19,8 @@ The enviornment variables consist of;
 * ```CHECK_NAME``` - What you want the bot to say it's taking the status of
 * ```PING_URL``` - The URL you'd like to check the status of. Make sure you include the protocal you intend to use, in the URL
 * ```BOT_TOKEN``` - The token of the Discord bot you intend to run
-* ```DM_USERS``` - Users to be DMed when the status of the service you're checking changes 
+* ```DM_USERS``` - Users to be DMed when the status of the service you're checking changes
+* ```CHECK_TIME``` - Time inbetween status checks
 
 > You can find these in the included example.env file
 

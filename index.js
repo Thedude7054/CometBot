@@ -9,6 +9,7 @@ const logger = require("./modules/Logger");
 const pingURL = process.env.PING_URL;
 const botToken = process.env.BOT_TOKEN;
 const checkName = process.env.CHECK_NAME;
+const checkTime = process.env.CHECK_TIME * 1000;
 
 let status = null;
 
@@ -58,7 +59,7 @@ process.on("uncaughtException", (err) => {
     logger.log(`${client.user.tag}, ready to serve ${client.users.size} users in ${client.guilds.size} servers, while running in ${process.env.ENV}`, "ready");
     setInterval(() => {
         checkStatus();
-    }, 5000);
+    }, checkTime);
 });
 
 client.login(botToken);
