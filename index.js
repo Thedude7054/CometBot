@@ -5,18 +5,6 @@ const client = new Discord.Client();
 const request = require('request');
 const dotenv = require('dotenv').load();
 const logger = require("./modules/Logger");
-const Sentry = require('@sentry/node');
-
-if(process.env.SENTRY_ENABLED === 'true') {
-    Sentry.init({
-        dsn: process.env.SENTRY_DSN,
-        environment: process.env.ENV,
-    });
-    Sentry.configureScope((scope) => {
-      scope.setTag("node_version", process.version);
-    });
-    logger.log("Sentry Enabled");
-}
 
 const pingURL = process.env.PING_URL;
 const botToken = process.env.BOT_TOKEN;
@@ -59,7 +47,6 @@ function checkStatus(req, res) {
 process.on("uncaughtException", (err) => {
     const regConstructor = new RegExp(`${__dirname}/`, "g"); // ESLint seems to think this is better practice to split lines like this
     const errorMsg = (regConstructor, "./");
-    Sentry.captureException(errorMsg);
     logger.fatal(`Uncaught Exception: ${errorMsg}`);
     process.exit(1);
   });
