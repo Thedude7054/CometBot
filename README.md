@@ -20,7 +20,7 @@ The enviornment variables consist of;
 * ```PING_URL``` - The URL you'd like to check the status of. Make sure you include the protocal you intend to use, in the URL
 * ```BOT_TOKEN``` - The token of the Discord bot you intend to run
 * ```DM_USERS``` - Users to be DMed when the status of the service you're checking changes
-* ```CHECK_TIME``` - Time inbetween status checks
+* ```CHECK_TIME``` - Time inbetween status checks in seconds
 
 > You can find these in the included example.env file
 
