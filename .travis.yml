@@ -34,7 +34,7 @@ script:
   - npm test
 
 before_deploy:
-  - sudo apt-get install kubectl
+  - sudo snap install kubectl --classic
   - gcloud -v
   - gcloud components list
 
