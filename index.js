@@ -24,6 +24,16 @@ const checkName = process.env.CHECK_NAME;
 
 let status = null;
 
+function alert(options = {}) {
+    const {checkName , status, statusCode} = options;
+    var dmUsers = process.env.DM_USERS.split(' ');
+    console.log(`Users to Ping: ${dmUsers}`);
+    dmUsers.forEach(function(id){
+        client.users.get(id).createDM();           // Using process.env.CHECK_NAME because checkName returned undefined this works just as well
+        client.users.get(id).send(`**Service:** ${process.env.CHECK_NAME}\n**Status:** ${status}\n**Status Code:** ${statusCode}\n**Environment:** ${process.env.ENV}`);
+    });
+}
+
 function checkStatus(req, res) {
     request({url : pingURL, time : true, stream : true}, function (error, response, body) {
     if (!error && response.statusCode === 200) {
@@ -31,7 +41,7 @@ function checkStatus(req, res) {
             if (status === 'UP') { return; }
             alert({ service : checkName, status : 'UP', statusCode : response.statusCode });
             client.user.setActivity(`${checkName} is UP`, { type: 'WATCHING' })
-            .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+            .then((presence) => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
             .catch(console.error);
             status = 'UP';
         } else {
@@ -46,23 +56,14 @@ function checkStatus(req, res) {
     });
 }
 
-function alert(options = {}) {
-    const {checkName , status, statusCode} = options;
-    var dmUsers = process.env.DM_USERS.split(' ');
-    console.log(`Users to Ping: ${dmUsers}`);
-    dmUsers.forEach(function(id){
-        client.users.get(id).createDM();           // Using process.env.CHECK_NAME because checkName returned undefined this works just as well
-        client.users.get(id).send(`**Service:** ${process.env.CHECK_NAME}\n**Status:** ${status}\n**Status Code:** ${statusCode}\n**Environment:** ${process.env.ENV}`);
-    });
-}
-
 process.on("uncaughtException", (err) => {
-    const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, "g"), "./");
+    const regConstructor = new RegExp(`${__dirname}/`, "g"); // ESLint seems to think this is better practice to split lines like this
+    const errorMsg = (regConstructor, "./");
     Sentry.captureException(errorMsg);
     logger.fatal(`Uncaught Exception: ${errorMsg}`);
     process.exit(1);
   });
-  process.on(("unhandledRejection"), err => {
+  process.on(("unhandledRejection"), (err) => {
     logger.error(`Unhandled rejection: ${err}`);
   });
 
