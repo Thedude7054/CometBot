@@ -1,6 +1,6 @@
 # Status-Bot
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b60512c7a77f4f6caae8640a73932302)](https://www.codacy.com/app/Thedude7054/status-discord-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Thedude7054/status-discord-bot&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b60512c7a77f4f6caae8640a73932302)](https://www.codacy.com/app/Thedude7054/status-discord-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Thedude7054/status-discord-bot&amp;utm_campaign=Badge_Grade) ![Build Status](https://travis-ci.com/Thedude7054/status-discord-bot.svg?branch=master)
 
 ## Requirements
 
