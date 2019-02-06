@@ -35,6 +35,7 @@ script:
 
 before_deploy:
   - gcloud -v
+  - gcloud components list
 
 deploy:
   - provider: script
