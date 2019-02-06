@@ -34,7 +34,7 @@ script:
   - npm test
 
 before_deploy:
-  - if [ ! -d ${HOME}/google-cloud-sdk ]; then curl https://sdk.cloud.google.com | bash; fi
+  - if [ ! -d ${HOME}/google-cloud-sdk ]; then curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-232.0.0-linux-x86_64.tar.gz | bash; fi
   - gcloud --quiet version
   - gcloud --quiet components update
   - gcloud --quiet components beta update
