@@ -1,4 +1,4 @@
-/*jshint esversion: 8 */
+/*jslint esversion: 8 */
 
 const Discord = require('discord.js');
 const dotenv = require('dotenv').load();

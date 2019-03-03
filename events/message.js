@@ -1,4 +1,4 @@
-/*jshint esversion: 8 */
+/*jslint esversion: 8 */
 module.exports = (client, message) => {
     // Ignore all bots
     if (message.author.bot) return;

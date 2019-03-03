@@ -23,7 +23,7 @@
     "jshint": "^2.9.7",
     "codacy-coverage": "^3.4.0"
   },
-  "jshintConfig": {
+  "jslintConfig": {
     "esversion": 8
   }
 }

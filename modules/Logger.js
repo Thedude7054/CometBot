@@ -1,4 +1,4 @@
-/*jshint esversion: 8 */
+/*jslint esversion: 8 */
 /*
 Logger class for easy and aesthetically pleasing console logging 
 */

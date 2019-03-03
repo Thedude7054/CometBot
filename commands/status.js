@@ -1,4 +1,4 @@
-/*jshint esversion: 8 */
+/*jslint esversion: 8 */
 const request = require('request');
 const pingURL = process.env.PING_URL;
 
