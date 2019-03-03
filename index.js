@@ -11,7 +11,7 @@ const statusChange = require('./events/site-status-change');
 const client = new Discord.Client();
 
 const botConfig = {
-    "prefix": process.env.PREFIX,
+    "prefix": process.env.BOT_PREFIX,
     "token": process.env.BOT_TOKEN,
     "status-channel": process.env.STATUS_CHANNEL,
     "log-channel": process.env.LOG_CHANNEL,
