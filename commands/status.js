@@ -14,4 +14,4 @@ exports.run = (client, message, args) => {
         message.channel.send(`**Service:** ${process.env.CHECK_NAME}\n**Status:** ${getStatus(response.statusCode)}\n**Status Code:** ${response.statusCode}\n**Environment:** ${process.env.ENV}`).catch(console.error);
 
     });
-}
+};

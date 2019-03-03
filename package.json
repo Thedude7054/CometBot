@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jshint index.js"
+    "test": "jshint ./"
   },
   "author": "Andrew Nasson",
   "license": "ISC",
@@ -22,5 +22,8 @@
   "devDependencies": {
     "jshint": "^2.9.7",
     "codacy-coverage": "^3.4.0"
+  },
+  "jshintConfig": {
+    "esversion": 8
   }
 }

@@ -1,6 +1,6 @@
 const request = require('request');
-const alert = require('./alert');
-const statusChange = require('../events/site-status-change');
+const alert = require('./dm-alert');
+const statusChange = require('./status-change');
 
 const pingURL = process.env.PING_URL;
 const checkName = process.env.CHECK_NAME;
@@ -13,7 +13,7 @@ module.exports = (client) => {
             console.log("checking UP");
             if (status === 'UP') { return; }
             alert({ client: client, service : checkName, status : 'UP', statusCode : response.statusCode });
-            statusChange({client : client, status : 'UP'})
+            statusChange({client : client, status : 'UP'});
             client.user.setActivity(`${checkName} is UP`, { type: 'WATCHING' })
             .then((presence) => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
             .catch(console.error);
@@ -22,7 +22,7 @@ module.exports = (client) => {
             console.log("checking DOWN");
             if (status === 'DOWN') { return; }
             alert({ client: client, service : checkName, status : 'DOWN', statusCode : response.statusCode });
-            statusChange({client : client, status : 'DOWN'})
+            statusChange({client : client, status : 'DOWN'});
             client.user.setActivity(`${checkName} is DOWN`, { type: 'WATCHING' })
             .then((presence) => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
             .catch(console.error);
