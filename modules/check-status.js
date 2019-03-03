@@ -1,3 +1,4 @@
+/*jshint esversion: 8 */
 const request = require('request');
 const alert = require('./dm-alert');
 const statusChange = require('./status-change');

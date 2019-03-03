@@ -1,3 +1,4 @@
+/*jshint esversion: 8 */
 let env = 'production (environment not specified by user)';
 if (process.env.ENV !== null && process.env.ENV.trim() !== ''){
     env = process.env.ENV;

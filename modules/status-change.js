@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 module.exports = (options = {}) => {
     const {client , status} = options;
     client.channels.get(process.env.STATUS_CHANNEL).send({embed: {
