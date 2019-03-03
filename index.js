@@ -18,7 +18,7 @@ const botConfig = {
     "pingURL": process.env.PING_URL,
     "checkName": process.env.CHECK_NAME,
     "checkTime": process.env.CHECK_TIME * 1000
-}
+};
 client.config = botConfig;
 
 const checkStatus = require('./modules/checkStatus');
