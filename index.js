@@ -1,4 +1,4 @@
-/*jslint esversion: 8 */
+/*jshint esversion: 8 */
 
 const Discord = require('discord.js');
 const dotenv = require('dotenv').load();
@@ -24,6 +24,11 @@ const logger = require("./modules/logger");
 client.logger = logger;
 
 client.on('error', console.error);
+
+let env = 'production (environment not specified by user)';
+if (process.env.ENV !== null && process.env.ENV.trim() !== ''){
+    env = process.env.ENV;
+}
 
 client.on('ready', () => {
     logger.log(`${client.user.tag}, ready to serve ${client.users.size} users in ${client.guilds.size} servers, while running in ${env}. My prefix is ${botConfig.prefix}`, "ready");
