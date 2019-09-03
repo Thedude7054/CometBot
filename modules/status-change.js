@@ -1,4 +1,4 @@
-/*jslint esversion: 8 */
+/*jslint esversion: 6 */
 
 module.exports = (options = {}) => {
     const {client , status} = options;

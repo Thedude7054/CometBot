@@ -1,4 +1,4 @@
-/* jshint esversion: 8 */
+/* jshint esversion: 6 */
 const request = require('request');
 const alert = require('./dm-alert');
 const statusChange = require('./status-change');
@@ -17,7 +17,9 @@ module.exports = (client) => {
             .then((presence) => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
             .catch(console.error);
             status = 'UP';
-            alert({ client: client, service : checkName, status : 'UP', statusCode : response.statusCode });
+            if (process.env.DM_USERS !== null) {
+                alert({ client: client, service : checkName, status : 'UP', statusCode : response.statusCode });
+            }
             statusChange({client : client, status : 'UP'});   
         } else {
             console.log("checking DOWN");
@@ -25,8 +27,10 @@ module.exports = (client) => {
             client.user.setActivity(`${checkName} is DOWN`, { type: 'WATCHING' })
             .then((presence) => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
             .catch(console.error);
-            status === 'DOWN';
-            alert({ client: client, service : checkName, status : 'DOWN', statusCode : response.statusCode });
+            status ='DOWN';
+            if (process.env.DM_USERS !== null) {
+                alert({ client: client, service : checkName, status : 'DOWN', statusCode : response.statusCode });
+            }
             statusChange({client : client, status : 'DOWN'});    
         }
     });
